@@ -1,25 +1,46 @@
-#include <stdio.h>
-#include <string.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include "../include/shell.h"
+#include "../include/input.h"
+#include "../include/parser.h"
+
 int main()
 {
-    char input[1024];
+    char *line;
+    char **tokens;
+    int i;
 
     printf("=====================================\n");
-    printf(" Welcome to ShellForge Version 1.0\n");
+    printf("ShellForge Version 3.0\n");
     printf("=====================================\n");
 
     while(1)
     {
         printf("myshell> ");
-        if(fgets(input,sizeof(input),stdin)==NULL)
-            break;
-        input[strcspn(input,"\n")]='\0';
-        if(strcmp(input,"exit")==0)
+
+        line = read_line();
+
+        if(strcmp(line,"exit")==0)
         {
-            printf("Exiting ShellForge...\n");
+            free(line);
             break;
         }
-        printf("You entered : %s\n",input);
+
+        tokens = parse_line(line);
+
+        printf("\nParsed Tokens\n");
+
+        for(i=0;tokens[i]!=NULL;i++)
+        {
+            printf("argv[%d] = %s\n",i,tokens[i]);
+        }
+
+        free_tokens(tokens);
+        free(line);
     }
+
+    printf("Goodbye!\n");
+
     return 0;
 }
