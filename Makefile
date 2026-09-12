@@ -1,22 +1,8 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -g -Iinclude
+CFLAGS = -Wall -g
 
-SRC = \
-src/main.c \
-src/input.c \
-src/parser.c \
-src/process.c
-
-TARGET = bin/shellforge
-
-all: $(TARGET)
-
-$(TARGET):
-	mkdir -p bin
-	$(CC) $(CFLAGS) $(SRC) -o $(TARGET)
-
-run:
-	./$(TARGET)
+prog5: prog5.c
+	$(CC) $(CFLAGS) -o prog5 prog5.c
 
 clean:
-	rm -rf bin/*
+	rm -f prog5
