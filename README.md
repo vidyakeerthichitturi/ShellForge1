@@ -1,6 +1,6 @@
 # ShellForge
 
-ShellForge is a Unix-like shell developed as part of the Operating Systems and Systems Programming Project-Based Learning course.
+ShellForge is a Unix-like shell developed as part of the Opera>
 
 ## Features (Week 1)
 
@@ -35,3 +35,18 @@ make run
 - Parent-child synchronization using waitpid()
 - Error handling using perror()
 
+## Week 4 Features
+
+- Process creation using fork()
+- Process execution using execvp()
+- Parent process synchronization using waitpid()
+
+## Week 5 Features
+
+- Built-in command support
+- cd
+- pwd
+- help
+- clear
+- exit
+- Environment variables
