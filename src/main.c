@@ -5,9 +5,10 @@
 #include "parser.h"
 #include "process.h"
 #include "builtin.h"
-
+#include "signals.h"
 int main()
 {
+    initialize_signals();
     char *line;
     char **tokens;
 
